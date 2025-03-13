@@ -19,7 +19,7 @@ load_dotenv()
 
 # LLM object and API Key
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-
+os.environ["SERPER_API_KEY"] = os.getenv("SERPER_API_KEY")
 
 def generate_docx(result):
     doc = Document()
@@ -104,7 +104,7 @@ treatment_task = Task(
 crew = Crew(
     agents=[diagnostician, treatment_advisor],
     tasks=[diagnose_task, treatment_task],
-    verbose=2
+    verbose=True
 )
 
 # Execution
