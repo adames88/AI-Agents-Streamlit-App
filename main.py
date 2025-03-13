@@ -1,3 +1,6 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import streamlit as st
 from crewai import Agent, Task, Crew, Process
 import os
@@ -9,7 +12,7 @@ from io import BytesIO
 import base64
 from helper import load_env
 import os
-import sys
+
 
 load_env()
 load_dotenv()
