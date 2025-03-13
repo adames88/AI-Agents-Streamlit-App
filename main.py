@@ -19,7 +19,6 @@ load_dotenv()
 
 # LLM object and API Key
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-os.environ["SERPER_API_KEY"] = os.getenv("SERPER_API_KEY")
 
 
 def generate_docx(result):
