@@ -7,7 +7,21 @@ from langchain_openai import ChatOpenAI
 from docx import Document
 from io import BytesIO
 import base64
+from helper import load_env
+import os
+import sys
 
+# Install latest SQLite version manually
+os.system("pip install pysqlite3-binary")
+
+# Force Streamlit to use pysqlite3 instead of default sqlite3
+try:
+    import pysqlite3
+    sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+except ImportError:
+    raise RuntimeError("pysqlite3 installation failed. Please check Streamlit logs.")
+
+load_env()
 load_dotenv()
 
 # LLM object and API Key
