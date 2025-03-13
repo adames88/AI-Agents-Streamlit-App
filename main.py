@@ -52,11 +52,11 @@ medical_history = st.text_area('Enter Medical History', 'e.g., diabetes, hyperte
 search_tool = SerperDevTool()
 scrape_tool = ScrapeWebsiteTool()
 
-llm = ChatOpenAI(
-    model="gpt-3.5-turbo-16k",
-    temperature=0.1,
-    max_tokens=8000
-)
+# llm = ChatOpenAI(
+#     model="gpt-3.5-turbo-16k",
+#     temperature=0.1,
+#     max_tokens=8000
+# )
 
 # Define Agents
 diagnostician = Agent(
@@ -66,7 +66,7 @@ diagnostician = Agent(
     verbose=True,
     allow_delegation=False,
     tools=[search_tool, scrape_tool],
-    llm=llm
+    llm="gpt-4o-mini"
 )
 
 treatment_advisor = Agent(
@@ -76,7 +76,7 @@ treatment_advisor = Agent(
     verbose=True,
     allow_delegation=False,
     tools=[search_tool, scrape_tool],
-    llm=llm
+    llm="gpt-4o-mini"
 )
 
 # Define Tasks
